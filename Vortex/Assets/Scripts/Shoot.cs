@@ -29,7 +29,6 @@ public class Shoot : MonoBehaviour
             range);
         if (isHit)
         {
-            Debug.Log(hit.transform.name);
             float distance = Vector3.Distance(hit.transform.position, camera.transform.position);
             if (hit.collider.GetComponent<Health>() != null)
             {

@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class MouseLook : MonoBehaviour
 {
+
     [SerializeField]
-    public float mouseSensitivity = 100f;
+    public float mouseSensitivity = 200f;
     public Transform playerBody;
     float xRotation = 0f;
+    float yRotation = 0f;
 
-    // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -22,13 +23,15 @@ public class MouseLook : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
-        xRotation -= mouseY;
-
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-        transform.Rotate(xRotation, 0f, 0f, Space.World);
-        // Quaternion.Euler(xRotation, 0f, 0f);
-        playerBody.Rotate(Vector3.up * mouseX);
         
+        xRotation -= mouseY;
+        yRotation -= mouseX;
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+
+        transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
+        playerBody.Rotate(Vector3.up, mouseX);
+        playerBody.Rotate(Vector3.right, mouseY);
+        //playerBody.localRotation = Quaternion.Euler(0f, yRotation, 0f);
+    
     }
-   
 }

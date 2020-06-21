@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public float health = 100f;
+    [SerializeField]
+    private float health = 100f;
+    [SerializeField]
+    private float armor = 100f;
 
-    void Update()
-    {
-
-    }
     public void TakeDamage(float damage)
     {
-        health -= damage;
+        float armorAtStart = armor;
+        if (armorAtStart > 0)
+        {
+            armor -= damage;
+            damage -= armorAtStart;
+        }
+        if (damage > 0)
+        {
+            health -= damage;
+        }
         Debug.Log("took damage ");
         Debug.Log(damage);
         if (health <= 0)

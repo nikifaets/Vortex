@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641252, b: 0.574817, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -508,7 +508,7 @@ PrefabInstance:
     - target: {fileID: 3478421107246774362, guid: 293f75a4c6ddedf4e825a916661d23fe,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 44.1
+      value: -8.32
       objectReference: {fileID: 0}
     - target: {fileID: 3478421107246774362, guid: 293f75a4c6ddedf4e825a916661d23fe,
         type: 3}
@@ -518,7 +518,7 @@ PrefabInstance:
     - target: {fileID: 3478421107246774362, guid: 293f75a4c6ddedf4e825a916661d23fe,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -56.7
+      value: 25.05
       objectReference: {fileID: 0}
     - target: {fileID: 3478421107246774362, guid: 293f75a4c6ddedf4e825a916661d23fe,
         type: 3}
@@ -660,6 +660,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 816489962}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &948379970 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5661602406006003351, guid: 421c54926a601984b80f244f5d9b522f,
+    type: 3}
+  m_PrefabInstance: {fileID: 2122470426}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &948379976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948379970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b91fad8cc4c7c5e4abaac5b87bd64a38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 30
+  range: 500
+  damageFallOff: 1
 --- !u!4 &1023711636 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1122732213015192006, guid: 421c54926a601984b80f244f5d9b522f,
@@ -1532,6 +1553,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Root
       objectReference: {fileID: 0}
+    - target: {fileID: 5661602404986450130, guid: 421c54926a601984b80f244f5d9b522f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.881584
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661602404986450130, guid: 421c54926a601984b80f244f5d9b522f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661602404986450130, guid: 421c54926a601984b80f244f5d9b522f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.6
+      objectReference: {fileID: 0}
     - target: {fileID: 5661602406671510544, guid: 421c54926a601984b80f244f5d9b522f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1546,6 +1582,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 20.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661602406671510555, guid: 421c54926a601984b80f244f5d9b522f,
+        type: 3}
+      propertyPath: mouseSensitivity
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 421c54926a601984b80f244f5d9b522f, type: 3}

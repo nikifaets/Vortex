@@ -6,9 +6,9 @@ public class MouseLook : MonoBehaviour
 {
 
     [SerializeField]
-    public float mouseSensitivity = 0.5f;
+    public float mouseSensitivity = 20f;
     public GameObject gun;
-    float xRotation = 0f;
+    float xRotation = 90f;
     float yRotation = 0f;
 
     float lastYPos;
@@ -32,8 +32,8 @@ public class MouseLook : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation, 0f, 180f);
 
 
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, yRotation, 0), Time.deltaTime*10f);
-        gun.transform.rotation = Quaternion.Slerp(gun.transform.rotation, Quaternion.Euler(xRotation, yRotation, 0), Time.deltaTime*10f);
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, yRotation, 0), Time.deltaTime*60f);
 
+        gun.transform.Rotate(-mouseY, 0, 0);
     }
 }

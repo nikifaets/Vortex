@@ -28,7 +28,7 @@ public class MouseLook : MonoBehaviour
         
         xRotation -= mouseY;
         yRotation += mouseX;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        //xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
 
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(xRotation, yRotation, 0), Time.deltaTime*10f);

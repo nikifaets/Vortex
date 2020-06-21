@@ -2,13 +2,12 @@
 
 public class Shoot : MonoBehaviour
 {
-    [SerializeField]
-    [Range(5, 50)]
-    public float weaponDamage = 25f;
+    WeaponStats weaponStats;
 
-    public float range = 500f;
-    public float damageFallOff = 1f;
-
+    void Start()
+    {
+        weaponStats = GetComponent<WeaponStats>();
+    }
 
     public void ShootBullet()
     {
@@ -19,7 +18,7 @@ public class Shoot : MonoBehaviour
         bool isHit = Physics.Raycast(   shootingPoint.position,
                                         shootingPoint.forward,
                                         out hit,
-                                        range);
+                                        weaponStats.range);
         if (isHit)
         {
             float distance = Vector3.Distance(hit.transform.position,
@@ -27,7 +26,9 @@ public class Shoot : MonoBehaviour
             //if the object hit has a health component, deal damage
             if (hit.collider.GetComponent<Health>() != null)
             {
-                hit.collider.GetComponent<Health>().TakeDamage(weaponDamage - distance * damageFallOff);
+                float damageToTake = weaponStats.damage - distance * weaponStats.damageFallOff;
+                if (damageToTake < 0) damageToTake = 0;
+                hit.collider.GetComponent<Health>().TakeDamage(damageToTake);
             }
         }
     }

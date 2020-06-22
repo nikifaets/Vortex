@@ -14,11 +14,6 @@ public class PlayerMove : MonoBehaviour
     private float gravity = -20f;
 
    
-    [SerializeField]
-    private AnimationCurve jumpFallOff;
-    [SerializeField] 
-    private float jumpMultiplier;
-    bool isJumping;
 
     private Vector3 velocity = Vector3.zero;
 
@@ -57,23 +52,6 @@ public class PlayerMove : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
        }
     }
-    private IEnumerator JumpEvent()
-    {
-        float timeInAir = 0.0f;
-        controller.slopeLimit = 90.0f;
-        do
-        {
-            float jumpForce = jumpFallOff.Evaluate(timeInAir);
-            controller.Move(Vector3.up * jumpForce * jumpMultiplier * Time.deltaTime);
-            timeInAir += Time.deltaTime;
-            yield return null;
-        } while (!controller.isGrounded &&
-                    controller.collisionFlags != CollisionFlags.Above);//if we hit the ceiling
-
-        isJumping = false;
-        controller.slopeLimit = 45.0f;
-    }
-
     private void ShootInput()
     {
         if (Input.GetButtonDown("Fire1"))

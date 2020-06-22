@@ -121,6 +121,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &358163378 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2335555076408636778, guid: 421c54926a601984b80f244f5d9b522f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5661602406448491251}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7efcf7bf0fbef704da60b6f5d4a50b67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!108 &705507994 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 5661602406011951209, guid: 421c54926a601984b80f244f5d9b522f,
@@ -193,6 +205,66 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Root
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661602406006003353, guid: 421c54926a601984b80f244f5d9b522f,
+        type: 3}
+      propertyPath: onMark.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661602406006003353, guid: 421c54926a601984b80f244f5d9b522f,
+        type: 3}
+      propertyPath: lostAim.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661602406006003353, guid: 421c54926a601984b80f244f5d9b522f,
+        type: 3}
+      propertyPath: onMark.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661602406006003353, guid: 421c54926a601984b80f244f5d9b522f,
+        type: 3}
+      propertyPath: onMark.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661602406006003353, guid: 421c54926a601984b80f244f5d9b522f,
+        type: 3}
+      propertyPath: lostAim.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661602406006003353, guid: 421c54926a601984b80f244f5d9b522f,
+        type: 3}
+      propertyPath: lostAim.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661602406006003353, guid: 421c54926a601984b80f244f5d9b522f,
+        type: 3}
+      propertyPath: onMark.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 358163378}
+    - target: {fileID: 5661602406006003353, guid: 421c54926a601984b80f244f5d9b522f,
+        type: 3}
+      propertyPath: lostAim.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 358163378}
+    - target: {fileID: 5661602406006003353, guid: 421c54926a601984b80f244f5d9b522f,
+        type: 3}
+      propertyPath: lostAim.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LostAim
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661602406006003353, guid: 421c54926a601984b80f244f5d9b522f,
+        type: 3}
+      propertyPath: lostAim.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661602406006003353, guid: 421c54926a601984b80f244f5d9b522f,
+        type: 3}
+      propertyPath: onMark.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: onMark
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661602406006003353, guid: 421c54926a601984b80f244f5d9b522f,
+        type: 3}
+      propertyPath: onMark.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 421c54926a601984b80f244f5d9b522f, type: 3}

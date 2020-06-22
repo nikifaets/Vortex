@@ -78,6 +78,7 @@ public class PlayerMove : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
+            Debug.Log("Shoot");
             Transform weapon = transform.Find("Weapon");
             weapon.GetComponent<Shoot>().ShootBullet();
         }

@@ -34,6 +34,10 @@ public class MouseLook : MonoBehaviour
 
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, yRotation, 0), Time.deltaTime*60f);
 
+
         gun.transform.Rotate(-mouseY, 0, 0);
+
+        //if(gun.transform.rotation.x > 180f) gun.transform.rotation = Quaternion.Euler(180f, gun.transform.rotation.y, gun.transform.rotation.z);
+        //if(gun.transform.rotation.x < 0f) gun.transform.rotation = Quaternion.Euler(0f, gun.transform.rotation.y, gun.transform.rotation.z);
     }
 }

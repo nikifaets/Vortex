@@ -20,9 +20,9 @@ public class Health : MonoBehaviour
         if (damage > 0)
         {
             health -= damage;
+            Debug.Log("took " + damage + " damage.");
         }
-        //Debug.Log("took damage ");
-        //Debug.Log(damage);
+
         if (health <= 0)
         {
             Destroy(gameObject);

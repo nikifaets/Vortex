@@ -147,6 +147,8 @@ MonoBehaviour:
   speed: 6
   jumpHeight: 3
   gravity: -25
+  orangePortal: {fileID: 0}
+  bluePortal: {fileID: 0}
 --- !u!195 &362404983604219312
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -196,6 +198,7 @@ GameObject:
   - component: {fileID: 362404983743018802}
   - component: {fileID: 362404983743018812}
   - component: {fileID: 362404983743018815}
+  - component: {fileID: 1434532663756777386}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -297,6 +300,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49282a16492110441ae56ccb8da8d3f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onMark:
+    m_PersistentCalls:
+      m_Calls: []
+  lostAim:
+    m_PersistentCalls:
+      m_Calls: []
+  shootingPoint: {fileID: 362404985291379060}
+--- !u!114 &1434532663756777386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362404983743018801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b91fad8cc4c7c5e4abaac5b87bd64a38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 30
+  range: 500
+  damageFallOff: 1
 --- !u!1 &362404984049608228
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,6 +416,7 @@ GameObject:
   - component: {fileID: 362404985291379060}
   - component: {fileID: 362404985291379057}
   - component: {fileID: 362404985291379062}
+  - component: {fileID: 6522950451979479144}
   m_Layer: 8
   m_Name: ShootingPoint
   m_TagString: Untagged
@@ -459,3 +485,18 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &6522950451979479144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362404985291379061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b91fad8cc4c7c5e4abaac5b87bd64a38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 30
+  range: 500
+  damageFallOff: 1

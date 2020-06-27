@@ -13,6 +13,8 @@ public class PlayerMove : MonoBehaviour
     [SerializeField]
     private float gravity = -20f;
 
+    public GameObject orangePortal;
+    public GameObject bluePortal;
    
 
     private Vector3 velocity = Vector3.zero;
@@ -43,7 +45,7 @@ public class PlayerMove : MonoBehaviour
 
         JumpInput();
         ShootInput();
-
+        CreatePortalInput();
     }
 
     private void JumpInput()
@@ -59,6 +61,19 @@ public class PlayerMove : MonoBehaviour
             Debug.Log("Shoot");
             Transform weapon = transform.Find("Weapon");
             weapon.GetComponent<Shoot>().ShootBullet();
+        }
+    }
+    private void CreatePortalInput()
+    {
+        if (Input.GetKeyDown("r"))
+        {
+            Transform weapon = transform.Find("Weapon");
+            weapon.GetComponent<Shoot>().CreatePortal(orangePortal);
+        }
+        if (Input.GetKeyDown("t"))
+        {
+            Transform weapon = transform.Find("Weapon");
+            weapon.GetComponent<Shoot>().CreatePortal(bluePortal);
         }
     }
 }

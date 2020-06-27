@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PortalTeleporter : MonoBehaviour
 {
-    public Transform linkedPortal;
-    private Transform objectInPortal;
-    private bool objectIsInPortal = false;
+    public GameObject linkedPortal;
+  //  private Transform objectInPortal;
+    public bool alreadyTeleported = false;
     
     void Update()
     {
-
+        /*
         if (objectIsInPortal)
         {
             Debug.Log("transforming");
@@ -28,15 +28,29 @@ public class PortalTeleporter : MonoBehaviour
             }
             objectIsInPortal = false;
         }
+        */
     }
-    private void OnTriggerEnter(Collider collided)
+    private void OnTriggerEnter(Collider collider)
     {
-        //objectIsInPortal = true;
-        //objectInPortal = collided.gameObject.transform;
-        //collided.gameObject.transform.Translate(linkedPortal.transform.position - collided.transform.position, Space.World);
-        //collided.transform.position = linkedPortal.position;
-        collided.transform.position = new Vector3(10, 10, 10);
-        Debug.Log("Collided with " + collided.gameObject.name);
-        
+
+        if (!alreadyTeleported)
+        {
+            Debug.Log("Collided with " + collider.gameObject.name);
+            //collided.gameObject.transform.Translate(linkedPortal.transform.position - collided.transform.position, Space.World);
+            //objectInPortal = collided.gameObject.transform;
+            collider.transform.position = linkedPortal.transform.TransformPoint(transform.InverseTransformPoint(transform.position));
+            collider.transform.rotation = linkedPortal.transform.rotation * Quaternion.Inverse(transform.rotation) * collider.transform.rotation;
+            Rigidbody objRigid = collider.GetComponent<Rigidbody>();
+            objRigid.velocity = linkedPortal.transform.TransformDirection(transform.InverseTransformDirection(objRigid.velocity));
+            linkedPortal.GetComponent<PortalTeleporter>().alreadyTeleported = true;
+        }
+        /*
+        collider.transform.position = linkedPortal.transform.position + linkedPortal.transform.forward * 10;
+        collider.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+        */
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        alreadyTeleported = false;
     }
 }

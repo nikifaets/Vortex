@@ -8,10 +8,7 @@ public class PortalCameraBehaviour : MonoBehaviour
     public Transform portalOfCamera;
     public Transform linkedPortal;
     public MeshRenderer screen;
-    void Start()
-    {
-        playerCamera = Camera.main.transform;
-    }
+
 
 
     void Update()

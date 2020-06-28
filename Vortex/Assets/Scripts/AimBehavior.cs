@@ -14,7 +14,7 @@ public class AimBehavior : MonoBehaviour
         
     }
 
-    public void onMark(){
+    public void OnMark(){
 
         GetComponent<RawImage>().texture = textureOnMark;
     }

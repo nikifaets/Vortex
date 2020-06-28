@@ -11,11 +11,11 @@ public class PauseMenuBehavior : MonoBehaviour
     public void Resume(){
 
         Debug.Log("Invoke resume");
-        unpaused.Invoke();
+        //unpaused.Invoke();
     }
 
     public void Quit(){
 
-        quit.Invoke();
+        //quit.Invoke();
     }
 }

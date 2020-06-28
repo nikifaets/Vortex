@@ -3,20 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Health : MonoBehaviour
-{
-    [SerializeField]
-    private float health = 100f;
-    [SerializeField]
-    private float armor = 100f;
+{   
+
+    public float maxHealth = 100;
+    public float health = 100;
+
 
     public void TakeDamage(float damage)
     {
-        float armorAtStart = armor;
-        if (armorAtStart > 0)
-        {
-            armor -= damage;
-            damage -= armorAtStart;
-        }
+
         if (damage > 0)
         {
             health -= damage;
@@ -27,5 +22,11 @@ public class Health : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public float getHealth()
+    {
+
+        return health;
     }
 }

@@ -60,7 +60,7 @@ public class PlayerMove : MonoBehaviour
         {
             Debug.Log("Shoot");
             Transform weapon = transform.Find("Weapon");
-            weapon.GetComponent<Shoot>().ShootBullet();
+            weapon.GetComponent<ShootingBehaviour>().ShootBullet();
         }
     }
     private void CreatePortalInput()
@@ -68,12 +68,12 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetKeyDown("r"))
         {
             Transform weapon = transform.Find("Weapon");
-            weapon.GetComponent<Shoot>().CreatePortal(orangePortal);
+            weapon.GetComponent<ShootingBehaviour>().CreatePortal(orangePortal);
         }
         if (Input.GetKeyDown("t"))
         {
             Transform weapon = transform.Find("Weapon");
-            weapon.GetComponent<Shoot>().CreatePortal(bluePortal);
+            weapon.GetComponent<ShootingBehaviour>().CreatePortal(bluePortal);
         }
     }
 }

@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class WeaponStats : MonoBehaviour
 {
-    [SerializeField]
+
     public float damage = 30f;
-    [SerializeField]
-    public float range = 500f;
-    [SerializeField]
+
+    public float range = 800f;
+
     public float damageFallOff = 1f;
+
+    public int ammo = 50;
+
+    public int magazineCapacity = 50;
+
+    public int reserveAmmo = 250;
 }

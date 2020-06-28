@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class PortalTeleporter : MonoBehaviour
 {
-    public Transform linkedPortal;
-    public Transform player;
+    public GameObject linkedPortal;
     public bool playerIsInPortal = false;
     
     void Update()
     {
-
+        /*
         if (playerIsInPortal)
         {
             //linkedPortal.GetComponent<PortalTeleporter>().alreadyTeleported = true;
@@ -28,6 +27,7 @@ public class PortalTeleporter : MonoBehaviour
                 playerIsInPortal = false;
                 }
         }
+        */
         
         
         
@@ -35,8 +35,11 @@ public class PortalTeleporter : MonoBehaviour
     private void OnTriggerEnter(Collider collider)
     {
 
-        Debug.Log("Collided with " + collider.gameObject.name);
-        playerIsInPortal = true;
+        if (collider.tag == "Player")
+        {
+            Debug.Log("transforming player");
+            collider.transform.Translate(new Vector3(10,10,10));
+        }
             //collided.gameObject.transform.Translate(linkedPortal.transform.position - collided.transform.position, Space.World);
             //linkedPortal.GetComponent<PortalTeleporter>().alreadyTeleported = true;
             //collider.transform.position = linkedPortal.transform.TransformPoint(transform.InverseTransformPoint(transform.position));
@@ -49,8 +52,5 @@ public class PortalTeleporter : MonoBehaviour
         collider.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
         */
     }
-    private void OnTriggerExit(Collider other)
-    {
-        playerIsInPortal = false;
-    }
+
 }

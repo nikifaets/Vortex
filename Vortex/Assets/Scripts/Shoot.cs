@@ -6,16 +6,15 @@ public class Shoot : MonoBehaviour
     WeaponStats weaponStats;
     public UnityEvent onMark;
     public UnityEvent lostAim;
+    public Transform shootingPoint;
     RaycastHit hit;
     bool isHit = false;
     bool isTargetHit = false;
     bool wasTargetHit = false;
-    Transform shootingPoint;
 
     void Start()
     {
         weaponStats = GetComponent<WeaponStats>();
-        shootingPoint = transform.Find("ShootingPoint");
     }
 
     void Update(){
@@ -67,6 +66,16 @@ public class Shoot : MonoBehaviour
                 if (damageToTake < 0) damageToTake = 0;
                 hit.collider.GetComponent<Health>().TakeDamage(damageToTake);
             }
+        }
+    }
+    public void CreatePortal(GameObject portal)
+    {
+        if (isHit)
+        {
+            portal.transform.position = hit.point;
+
+            Quaternion hitObjectRotation = Quaternion.LookRotation(hit.normal);
+            portal.transform.rotation = hitObjectRotation;
         }
     }
 

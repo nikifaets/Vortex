@@ -15,14 +15,13 @@ public class PortalCameraSetup : MonoBehaviour
         {
             orangeCamera.targetTexture.Release();
         }
-        orangeCamera.targetTexture = new RenderTexture(Screen.width, Screen.height, 24);
-        orangePortalMat.mainTexture = orangeCamera.targetTexture;
-
         if (blueCamera.targetTexture != null)
         {
             blueCamera.targetTexture.Release();
         }
+        orangeCamera.targetTexture = new RenderTexture(Screen.width, Screen.height, 24);
         blueCamera.targetTexture = new RenderTexture(Screen.width, Screen.height, 24);
-        bluePortalMat.mainTexture = blueCamera.targetTexture;
+        orangePortalMat.mainTexture = blueCamera.targetTexture;
+        bluePortalMat.mainTexture = orangeCamera.targetTexture;
     }
 }

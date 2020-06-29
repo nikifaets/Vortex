@@ -5,6 +5,8 @@ using UnityEngine;
 public class PortalTeleporter : MonoBehaviour
 {
     public GameObject linkedPortal;
+    public GameObject player;
+    public Transform random;
     public bool playerIsInPortal = false;
     
     void Update()
@@ -34,23 +36,31 @@ public class PortalTeleporter : MonoBehaviour
     }
     private void OnTriggerEnter(Collider collider)
     {
-
-        if (collider.tag == "Player")
+        Debug.Log("test");
+        collider.transform.position = linkedPortal.transform.position + linkedPortal.transform.forward * 1.5f;
+        collider.transform.rotation = Quaternion.LookRotation(linkedPortal.transform.forward);
+        /*
+        if (collider.tag == "Player" && !playerIsInPortal)
         {
-            Debug.Log("transforming player");
-            collider.transform.Translate(new Vector3(10,10,10));
+            Debug.Log("transforming " + collider.name);
+            linkedPortal.GetComponent<PortalTeleporter>().playerIsInPortal = true;
         }
-            //collided.gameObject.transform.Translate(linkedPortal.transform.position - collided.transform.position, Space.World);
-            //linkedPortal.GetComponent<PortalTeleporter>().alreadyTeleported = true;
-            //collider.transform.position = linkedPortal.transform.TransformPoint(transform.InverseTransformPoint(transform.position));
-            //collider.transform.rotation = linkedPortal.transform.rotation * Quaternion.Inverse(transform.rotation) * collider.transform.rotation;
-            //Rigidbody objRigid = collider.GetComponent<Rigidbody>();
-            //objRigid.velocity = linkedPortal.transform.TransformDirection(transform.InverseTransformDirection(objRigid.velocity));
-        
+        */
+        //collided.gameObject.transform.Translate(linkedPortal.transform.position - collided.transform.position, Space.World);
+        //linkedPortal.GetComponent<PortalTeleporter>().alreadyTeleported = true;
+        //collider.transform.position = linkedPortal.transform.TransformPoint(transform.InverseTransformPoint(transform.position));
+        //collider.transform.rotation = linkedPortal.transform.rotation * Quaternion.Inverse(transform.rotation) * collider.transform.rotation;
+        //Rigidbody objRigid = collider.GetComponent<Rigidbody>();
+        //objRigid.velocity = linkedPortal.transform.TransformDirection(transform.InverseTransformDirection(objRigid.velocity));
+
         /*
         collider.transform.position = linkedPortal.transform.position + linkedPortal.transform.forward * 10;
         collider.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
         */
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        playerIsInPortal = false;
     }
 
 }

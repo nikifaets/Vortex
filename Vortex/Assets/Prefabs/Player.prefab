@@ -12,9 +12,7 @@ GameObject:
   - component: {fileID: 362404983604219319}
   - component: {fileID: 362404983604219316}
   - component: {fileID: 362404983604219317}
-  - component: {fileID: 362404983604219313}
   - component: {fileID: 362404983604219314}
-  - component: {fileID: 362404983604219315}
   - component: {fileID: 362404983604219312}
   - component: {fileID: 362404983604219325}
   m_Layer: 0
@@ -100,24 +98,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!143 &362404983604219313
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 362404983604219274}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &362404983604219314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,25 +110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50c1d9bcf1ead5a44a699dd4dca63855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 100
   health: 100
-  armor: 100
---- !u!114 &362404983604219315
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 362404983604219274}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58f676c33e2a599cfabe589c0a87b301, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 6
-  jumpHeight: 3
-  gravity: -25
-  orangePortal: {fileID: 0}
-  bluePortal: {fileID: 0}
 --- !u!195 &362404983604219312
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -322,6 +285,9 @@ MonoBehaviour:
   damage: 30
   range: 500
   damageFallOff: 1
+  ammo: 50
+  magazineCapacity: 50
+  reserveAmmo: 250
 --- !u!1 &362404984049608228
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,7 +382,6 @@ GameObject:
   - component: {fileID: 362404985291379060}
   - component: {fileID: 362404985291379057}
   - component: {fileID: 362404985291379062}
-  - component: {fileID: 6522950451979479144}
   m_Layer: 8
   m_Name: ShootingPoint
   m_TagString: Untagged
@@ -485,18 +450,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &6522950451979479144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 362404985291379061}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b91fad8cc4c7c5e4abaac5b87bd64a38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 30
-  range: 500
-  damageFallOff: 1

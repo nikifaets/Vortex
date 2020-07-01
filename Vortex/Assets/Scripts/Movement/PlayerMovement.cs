@@ -25,17 +25,26 @@ public class PlayerMovement : MonoBehaviour
         Jump();
         CreatePortalInput();
         ShootInput();
+        ReloadInput();
     }
     private void FixedUpdate()
     {
         Move();
     }
     private void Move() {
+        bool running = false;
+        if (Input.GetKey(KeyCode.LeftShift)) { running = true; }
+        if (running) //run
+        {
+            speed += 2;
+            GetComponent<Animator>().SetTrigger("Running");
+        }
         float x = Input.GetAxisRaw("Horizontal") * speed;
         float z = Input.GetAxisRaw("Vertical") * speed;
         x *= Time.deltaTime;
         z *= Time.deltaTime;
         transform.Translate(x, 0, z);
+        if (running) speed -= 2;
     }
     private void Jump()
     {
@@ -55,9 +64,20 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
+            GetComponent<Animator>().SetTrigger("Shooting");
             Debug.Log("Shoot");
             Transform weapon = transform.Find("Weapon");
             weapon.GetComponent<ShootingBehaviour>().ShootBullet();
+        }
+    }
+    private void ReloadInput()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Debug.Log("Reloading...");
+            Transform weapon = transform.Find("Weapon");
+            weapon.GetComponent<ShootingBehaviour>().Reload();
+            GetComponent<Animator>().SetTrigger("Reloading");
         }
     }
     private void CreatePortalInput()

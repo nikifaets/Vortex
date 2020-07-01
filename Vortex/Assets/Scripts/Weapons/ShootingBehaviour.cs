@@ -19,7 +19,7 @@ public class ShootingBehaviour : MonoBehaviour
 
     void Update(){
 
-        //GetComponent<Animator>().SetTrigger("isFiring");
+        GetComponent<Animator>().SetTrigger("Shooting");
         if(shootingPoint == null) { Debug.Log("no shooting point"); }
 
         isHit = Physics.Raycast(   shootingPoint.position,
@@ -72,12 +72,12 @@ public class ShootingBehaviour : MonoBehaviour
             }
             if (weaponStats.ammo <= 0)
             {
-                Reload(weaponStats);
+                Reload();
             }
         }
     
     }
-    public void Reload(WeaponStats weaponStats)
+    public void Reload()
     {
         //reload
         Debug.Log("Reloading...");

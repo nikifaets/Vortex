@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed = 0.5f;
-    public float jumpForce = 2;
+    public float runningSpeedIncrement = 3f;
+    public float jumpForce = 6;
     public float raycastDistance = 1.1f;
 
     public GameObject orangePortal;
@@ -36,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift)) { running = true; }
         if (running) //run
         {
-            speed += 2;
+            speed += runningSpeedIncrement;
             GetComponent<Animator>().SetTrigger("Running");
         }
         float x = Input.GetAxisRaw("Horizontal") * speed;
@@ -44,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
         x *= Time.deltaTime;
         z *= Time.deltaTime;
         transform.Translate(x, 0, z);
-        if (running) speed -= 2;
+        if (running) speed -= runningSpeedIncrement;
     }
     private void Jump()
     {
@@ -74,7 +75,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            Debug.Log("Reloading...");
             Transform weapon = transform.Find("Weapon");
             weapon.GetComponent<ShootingBehaviour>().Reload();
             GetComponent<Animator>().SetTrigger("Reloading");
@@ -82,12 +82,12 @@ public class PlayerMovement : MonoBehaviour
     }
     private void CreatePortalInput()
     {
-        if (Input.GetKeyDown("r"))
+        if (Input.GetKeyDown(KeyCode.G))
         {
             Transform weapon = transform.Find("Weapon");
             weapon.GetComponent<ShootingBehaviour>().CreatePortal(orangePortal);
         }
-        if (Input.GetKeyDown("t"))
+        if (Input.GetKeyDown(KeyCode.H))
         {
             Transform weapon = transform.Find("Weapon");
             weapon.GetComponent<ShootingBehaviour>().CreatePortal(bluePortal);

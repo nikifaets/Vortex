@@ -19,7 +19,7 @@ public class ShootingBehaviour : MonoBehaviour
 
     void Update(){
 
-        GetComponent<Animator>().SetTrigger("Shooting");
+
         if(shootingPoint == null) { Debug.Log("no shooting point"); }
 
         isHit = Physics.Raycast(   shootingPoint.position,
@@ -81,7 +81,7 @@ public class ShootingBehaviour : MonoBehaviour
     {
         //reload
         Debug.Log("Reloading...");
-
+    
         if (weaponStats.reserveAmmo > 0)
         {
             if (weaponStats.reserveAmmo < weaponStats.magazineCapacity)
@@ -91,8 +91,10 @@ public class ShootingBehaviour : MonoBehaviour
             }
             else
             {
+                int ammoLeftBeforeReload = weaponStats.ammo;
                 weaponStats.ammo = weaponStats.magazineCapacity;
                 weaponStats.reserveAmmo -= weaponStats.magazineCapacity;
+                weaponStats.reserveAmmo += ammoLeftBeforeReload;
             }
         }
         else

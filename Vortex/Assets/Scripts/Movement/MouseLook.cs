@@ -11,6 +11,7 @@ public class MouseLook : MonoBehaviour
     float xRotation = 90f;
     float yRotation = 0f;
     public Transform playerCamera;
+    public Transform shootingPoint;
     float lastYPos;
 
     void Start()
@@ -37,6 +38,7 @@ public class MouseLook : MonoBehaviour
 
         gun.transform.Rotate(-mouseY, 0, 0);
         playerCamera.Rotate(-mouseY, 0, 0);
+        shootingPoint.Rotate(-mouseY, 0, 0);
 
         //if(gun.transform.rotation.x > 180f) gun.transform.rotation = Quaternion.Euler(180f, gun.transform.rotation.y, gun.transform.rotation.z);
         //if(gun.transform.rotation.x < 0f) gun.transform.rotation = Quaternion.Euler(0f, gun.transform.rotation.y, gun.transform.rotation.z);

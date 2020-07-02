@@ -4,32 +4,31 @@ using UnityEngine;
 
 public class PortalTeleporter : MonoBehaviour
 {
-    public GameObject linkedPortal;
-    public GameObject player;
-    public Transform random;
-    public bool playerIsInPortal = false;
-    
+    public Transform linkedPortal;
+    private Transform objectToTeleport;
+    public bool objectIsInPortal = false;
+
     void Update()
     {
-        /*
-        if (playerIsInPortal)
+
+        if (objectIsInPortal)
         {
             //linkedPortal.GetComponent<PortalTeleporter>().alreadyTeleported = true;
             Debug.Log("transforming");
-             Vector3 portalToCollided = player.position - transform.position;
-             float dotProduct = Vector3.Dot(transform.up, portalToCollided);
+            Vector3 portalToCollided = objectToTeleport.position - transform.position;
+            float dotProduct = Vector3.Dot(transform.up, portalToCollided);
 
-                if (dotProduct < 0f)
-                {
-                    float rotationDiff = -Quaternion.Angle(transform.rotation, linkedPortal.rotation);
-                    rotationDiff += 180;
-                    player.Rotate(Vector3.up, rotationDiff);
-                    Vector3 positionOffset = Quaternion.Euler(0f, rotationDiff, 0f) * portalToCollided;
-                    player.position = linkedPortal.position + positionOffset;
-                playerIsInPortal = false;
-                }
+            if (dotProduct < 0f)
+            {
+                float rotationDiff = -Quaternion.Angle(transform.rotation, linkedPortal.rotation);
+                rotationDiff += 180;
+                objectToTeleport.Rotate(Vector3.up, rotationDiff);
+
+                Vector3 positionOffset = Quaternion.Euler(0f, rotationDiff, 0f) * portalToCollided;
+                objectToTeleport.position = linkedPortal.position + positionOffset;
+                objectIsInPortal = false;
+            }
         }
-        */
         
         
         
@@ -37,8 +36,10 @@ public class PortalTeleporter : MonoBehaviour
     private void OnTriggerEnter(Collider collider)
     {
         Debug.Log("test");
-        collider.transform.position = linkedPortal.transform.position + linkedPortal.transform.forward * 1.5f;
-        collider.transform.rotation = Quaternion.LookRotation(linkedPortal.transform.forward);
+        objectToTeleport = collider.transform;
+        objectIsInPortal = true;
+        //collider.transform.position = linkedPortal.transform.position + linkedPortal.transform.forward * 1.5f;
+        //collider.transform.rotation = Quaternion.LookRotation(linkedPortal.transform.forward);
         /*
         if (collider.tag == "Player" && !playerIsInPortal)
         {
@@ -58,9 +59,6 @@ public class PortalTeleporter : MonoBehaviour
         collider.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
         */
     }
-    private void OnTriggerExit(Collider other)
-    {
-        playerIsInPortal = false;
-    }
+
 
 }

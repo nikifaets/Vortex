@@ -25,7 +25,7 @@ public class PortalTeleporter : MonoBehaviour
                 objectToTeleport.Rotate(Vector3.up, rotationDiff);
 
                 Vector3 positionOffset = Quaternion.Euler(0f, rotationDiff, 0f) * portalToCollided;
-                objectToTeleport.position = linkedPortal.position + positionOffset;
+                objectToTeleport.position = linkedPortal.position + positionOffset + linkedPortal.forward * 5f;
                 objectIsInPortal = false;
             }
         }

@@ -69,6 +69,7 @@ public class ShootingBehaviour : MonoBehaviour
                     if (damageToTake < 0) damageToTake = 0;
                     hit.collider.GetComponent<Health>().TakeDamage(damageToTake);
                 }
+                Debug.DrawRay(shootingPoint.position, hit.transform.position);
             }
             if (weaponStats.ammo <= 0)
             {

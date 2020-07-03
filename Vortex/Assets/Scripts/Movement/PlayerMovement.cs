@@ -66,7 +66,6 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButton("Fire1"))
         {
             GetComponent<Animator>().SetTrigger("Shooting");
-            Debug.Log("Shoot");
             Transform weapon = transform.Find("Weapon");
             weapon.GetComponent<ShootingBehaviour>().ShootBullet();
         }

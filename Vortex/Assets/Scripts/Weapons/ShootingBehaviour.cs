@@ -7,13 +7,14 @@ public class ShootingBehaviour : MonoBehaviour
     public UnityEvent onMark;
     public UnityEvent lostAim;
     public Transform shootingPoint;
-    public ParticleSystem impactEffect;
+    public GameObject impactEffect;
     public ParticleSystem muzzleFlash;
     RaycastHit hit;
     bool isHit = false;
     bool isTargetHit = false;
     bool wasTargetHit = false;
     private float nextTimeToFire = 0f;
+    private float reloadTimer = 0f; //if >0, weapon is reloading and can't shoot
 
     void Start()
     {
@@ -22,7 +23,7 @@ public class ShootingBehaviour : MonoBehaviour
 
     void Update(){
 
-
+        if (reloadTimer > 0) reloadTimer -= Time.deltaTime;
         if(shootingPoint == null) { Debug.Log("no shooting point"); }
 
         isHit = Physics.Raycast(   shootingPoint.position,
@@ -56,7 +57,7 @@ public class ShootingBehaviour : MonoBehaviour
     public void ShootBullet()
     {
         WeaponStats weaponStats = GetComponent<WeaponStats>();
-        if (weaponStats.ammo > 0 && Time.time >= nextTimeToFire)
+        if (weaponStats.ammo > 0 && Time.time >= nextTimeToFire && reloadTimer <= 0)
         {
             nextTimeToFire = Time.time + 1f / weaponStats.fireRate;
             muzzleFlash.Play();
@@ -74,8 +75,7 @@ public class ShootingBehaviour : MonoBehaviour
                     hit.collider.GetComponent<Health>().TakeDamage(damageToTake);
                 }
                 
-                ParticleSystem impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-
+                GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
                 Destroy(impactGO, 1f);
             }
             if (weaponStats.ammo <= 0)
@@ -89,26 +89,27 @@ public class ShootingBehaviour : MonoBehaviour
     {
         //reload
         Debug.Log("Reloading...");
-    
+        reloadTimer = 2f;
         if (weaponStats.reserveAmmo > 0)
         {
-            if (weaponStats.reserveAmmo < weaponStats.magazineCapacity)
-            {
-                weaponStats.ammo = weaponStats.reserveAmmo;
-                weaponStats.reserveAmmo = 0;
-            }
-            else
-            {
-                int ammoLeftBeforeReload = weaponStats.ammo;
-                weaponStats.ammo = weaponStats.magazineCapacity;
-                weaponStats.reserveAmmo -= weaponStats.magazineCapacity;
-                weaponStats.reserveAmmo += ammoLeftBeforeReload;
-            }
+                if (weaponStats.reserveAmmo < weaponStats.magazineCapacity)
+                {
+                    weaponStats.ammo = weaponStats.reserveAmmo;
+                    weaponStats.reserveAmmo = 0;
+                }
+                else
+                {
+                    int ammoLeftBeforeReload = weaponStats.ammo;
+                    weaponStats.ammo = weaponStats.magazineCapacity;
+                    weaponStats.reserveAmmo -= weaponStats.magazineCapacity;
+                    weaponStats.reserveAmmo += ammoLeftBeforeReload;
+                }
         }
         else
         {
             Debug.Log("Out of ammo.");
         }
+        
     }
     public void CreatePortal(GameObject portal)
     {

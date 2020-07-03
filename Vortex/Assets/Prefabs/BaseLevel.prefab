@@ -10477,8 +10477,12 @@ MonoBehaviour:
   aimUI: {fileID: 4204582747733059226}
   playerCamera: {fileID: 5661602406294800256}
   healthBars: {fileID: 3259869841280696640}
+<<<<<<< HEAD
   deadMenu: {fileID: 909531106545496893}
   winMenu: {fileID: 6439494010288273350}
+=======
+  deadMenu: {fileID: 0}
+>>>>>>> f670ab195dea441dd7af19e8b918ee0a4d632d8c
 --- !u!114 &7572458990128077583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11584,7 +11588,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8
   runningSpeedIncrement: 5
-  jumpForce: 400
+  jumpForce: 9
   raycastDistance: 3.1
   orangePortal: {fileID: 4090226154011190477}
   bluePortal: {fileID: 8045575237657399938}
@@ -11602,6 +11606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   died:
     m_PersistentCalls:
+<<<<<<< HEAD
       m_Calls:
       - m_Target: {fileID: 881525549097295437}
         m_MethodName: OnPlayerDied
@@ -11614,6 +11619,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+=======
+      m_Calls: []
+>>>>>>> f670ab195dea441dd7af19e8b918ee0a4d632d8c
   maxHealth: 100
   health: 100
   woundedPPV: {fileID: 8032675992892525348}
@@ -18008,8 +18016,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   shootingPoint: {fileID: 4164392818779848731}
-  impactEffect: {fileID: 6136358409933783370, guid: 26b0d8e92a2559346b9410dd61ad3490,
-    type: 3}
+  impactEffect: {fileID: 7423215644800382318}
   muzzleFlash: {fileID: 2920136709818200830}
 --- !u!114 &933237365200286678
 MonoBehaviour:
@@ -29176,6 +29183,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26b0d8e92a2559346b9410dd61ad3490, type: 3}
+--- !u!1 &7423215644800382318 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7067018239381045028, guid: 26b0d8e92a2559346b9410dd61ad3490,
+    type: 3}
+  m_PrefabInstance: {fileID: 366930025124039242}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2609312774629287284 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2387396866730585918, guid: 26b0d8e92a2559346b9410dd61ad3490,

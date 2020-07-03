@@ -17,7 +17,7 @@ public class HealthBarControl : MonoBehaviour
         for(int i=0; i<transform.childCount; i++){
 
             GameObject child = transform.GetChild(i).gameObject;
-            if(child.name != "HealthBar"){
+            if(child.name != "HealthBar" && child.name != "PlayerStats"){
 
                 GameObject.Destroy(child);
             }

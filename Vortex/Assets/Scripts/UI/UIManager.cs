@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     public GameObject aimUI;
     public Camera playerCamera;
     public GameObject healthBars;
+    public GameObject deadMenu;
 
     const string KEY_PAUSE = "q";
 
@@ -47,6 +48,16 @@ public class UIManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
+    public void OnPlayerDied(){
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        Time.timeScale = 0f;
+        aimUI.SetActive(false);
+        deadMenu.SetActive(true);
+        
+    }
+
     void CreateEnemiesLifeBars(){
 
         healthBars.GetComponent<HealthBarControl>().Clear();
@@ -73,8 +84,6 @@ public class UIManager : MonoBehaviour
         
         float angle = Vector3.Angle(cameraToEnemy, playerCamera.transform.forward);
         return angle < 70f;
-
-    
 
     }
 }

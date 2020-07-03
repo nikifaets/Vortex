@@ -13,6 +13,7 @@ public class EnemyBehavior : MonoBehaviour
     public GameObject target;
     public NavMeshAgent agent;
     public float minDistToPlayer = 10f;
+    public int damage = 15;
     private const float TIMER = 2f;
     private float timeElapsed = 0;
 
@@ -52,12 +53,18 @@ public class EnemyBehavior : MonoBehaviour
             timeElapsed = TIMER;
             
             float willHit = Random.Range(0f, 1f);
+            
+            PlayerHealth targetHealth = target.GetComponent<PlayerHealth>();
+
             if(willHit <= hitChance){
 
-            }
+                targetHealth.TakeDamage(damage);
+                
+            }   
 
             else{
 
+                return;
             }
         }
 

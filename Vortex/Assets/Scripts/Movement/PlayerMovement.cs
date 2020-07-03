@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 0.5f;
     public float runningSpeedIncrement = 3f;
     public float jumpForce = 20;
-    public float raycastDistance = 1.1f;
+    public float raycastDistance = 0.2f;
 
     public GameObject orangePortal;
     public GameObject bluePortal;

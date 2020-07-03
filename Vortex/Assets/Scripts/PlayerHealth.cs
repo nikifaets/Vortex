@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.Events;
 
 public class PlayerHealth : MonoBehaviour
 {
 
+    public UnityEvent died;
     public float maxHealth = 100;
     public float health = 100;
     public PostProcessVolume woundedPPV;
@@ -23,6 +25,13 @@ public class PlayerHealth : MonoBehaviour
         {
                 woundedPPV.enabled = true;
         }
-          else woundedPPV.enabled = false;
+        else woundedPPV.enabled = false;
+
+
+        if(health <= 0){
+
+            died.Invoke();
         }
+    }
+
     }

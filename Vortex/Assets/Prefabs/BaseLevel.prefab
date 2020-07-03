@@ -9867,7 +9867,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4090226154011190477}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.2, y: 10.81, z: 1.7299957}
+  m_LocalPosition: {x: -2.2, y: -7, z: 1.7299957}
   m_LocalScale: {x: 4.6702857, y: 8.694529, z: 0.1}
   m_Children:
   - {fileID: 6722424993877513384}
@@ -9900,7 +9900,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3dba96046c2f74b4fafadfb84ffce026, type: 2}
+  - {fileID: 2100000, guid: 81c97ac0cab9fef4a99bf9ab2eabb8ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10765,10 +10765,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9afe73a372cb98247a520174aa18d134, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
-  runningSpeedIncrement: 3
-  jumpForce: 6
-  raycastDistance: 1.1
+  speed: 5.6
+  runningSpeedIncrement: 4.5
+  jumpForce: 7.76
+  raycastDistance: 2.2
   orangePortal: {fileID: 4090226154011190477}
   bluePortal: {fileID: 8045575237657399938}
 --- !u!54 &7368355221302372765
@@ -11344,7 +11344,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8045575237657399938}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.2, y: 10.81, z: 1.7299957}
+  m_LocalPosition: {x: -2.2, y: -7, z: 1.7299957}
   m_LocalScale: {x: 4.6702857, y: 8.694529, z: 0.1}
   m_Children:
   - {fileID: 858051634005658915}

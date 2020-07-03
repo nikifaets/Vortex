@@ -68,7 +68,13 @@ public class UIManager : MonoBehaviour
 
     bool IsObjectVisible(GameObject obj){
 
-        Renderer renderer = obj.GetComponent<MeshRenderer>();
-        return renderer.isVisible;
+        Vector3 cameraToEnemy = -playerCamera.transform.position + obj.transform.position;
+
+        
+        float angle = Vector3.Angle(cameraToEnemy, playerCamera.transform.forward);
+        return angle < 70f;
+
+    
+
     }
 }

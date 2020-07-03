@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     public Camera playerCamera;
     public GameObject healthBars;
     public GameObject deadMenu;
+    public GameObject winMenu;
 
     const string KEY_PAUSE = "q";
 
@@ -56,6 +57,16 @@ public class UIManager : MonoBehaviour
         aimUI.SetActive(false);
         deadMenu.SetActive(true);
         
+    }
+
+    public void OnPlayerWon(){
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        Time.timeScale = 0f;
+        aimUI.SetActive(false);
+        winMenu.SetActive(true);
+
     }
 
     void CreateEnemiesLifeBars(){

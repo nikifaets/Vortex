@@ -51,29 +51,15 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump"))
         {
-                Debug.Log("jumping");
             if (isGrounded())
             {
-                Debug.Log("jumping");
                 GetComponent<Rigidbody>().AddForce(0, jumpForce, 0, ForceMode.Impulse);
             }
         }
     }
     private bool isGrounded()
     {
-        int mask = LayerMask.GetMask("Default");
-        float rayLength = 0.7f;
-        float sphereRadius = 0.2f;
-        Vector3 origin = transform.position;
-        Vector3 direction = new Vector3(0, -1, 0);
-        return Physics.SphereCast(origin,
-                               sphereRadius,
-                               direction,
-                               out RaycastHit hit,
-                               rayLength,
-                               mask,
-                               QueryTriggerInteraction.Collide)
-            && hit.collider.CompareTag("Ground");
+        return Physics.Raycast(transform.position, Vector3.down, raycastDistance);
     }
     private void ShootInput()
     {

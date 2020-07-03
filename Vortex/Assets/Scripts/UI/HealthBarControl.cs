@@ -30,7 +30,7 @@ public class HealthBarControl : MonoBehaviour
         GameObject bar = Instantiate(healthBar, transform);
         
 
-        float health = enemy.gameObject.GetComponent<Health>().health / enemy.gameObject.GetComponent<Health>().maxHealth;
+        float health = enemy.gameObject.GetComponent<Health>().getHealth() / enemy.gameObject.GetComponent<Health>().maxHealth;
 
         Vector3 colliderSize = enemy.GetComponent<BoxCollider>().size;
         Vector3 enemyPos = enemy.transform.position;

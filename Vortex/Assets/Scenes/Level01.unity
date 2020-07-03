@@ -557,6 +557,12 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!198 &1016443544 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2920136709818200830, guid: 421c54926a601984b80f244f5d9b522f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1767237136}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1070302760
 Mesh:
   m_ObjectHideFlags: 0
@@ -970,6 +976,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 929518218647616966, guid: 421c54926a601984b80f244f5d9b522f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -38.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 929518218647616966, guid: 421c54926a601984b80f244f5d9b522f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 14.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 929518218647616966, guid: 421c54926a601984b80f244f5d9b522f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 929518218647616966, guid: 421c54926a601984b80f244f5d9b522f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 929518218647616966, guid: 421c54926a601984b80f244f5d9b522f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 929518218647616966, guid: 421c54926a601984b80f244f5d9b522f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 29.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 929518218647616966, guid: 421c54926a601984b80f244f5d9b522f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 933237365200286678, guid: 421c54926a601984b80f244f5d9b522f,
         type: 3}
       propertyPath: m_Tangents.Array.data[0].x
@@ -15700,6 +15741,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1070302760}
+    - target: {fileID: 3867315676992231040, guid: 421c54926a601984b80f244f5d9b522f,
+        type: 3}
+      propertyPath: fireRate
+      value: 6.77
+      objectReference: {fileID: 0}
     - target: {fileID: 4125711699801346958, guid: 421c54926a601984b80f244f5d9b522f,
         type: 3}
       propertyPath: m_Mesh
@@ -15725,11 +15771,36 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 13.11
       objectReference: {fileID: 0}
+    - target: {fileID: 5795803673273086361, guid: 421c54926a601984b80f244f5d9b522f,
+        type: 3}
+      propertyPath: muzzleFlash
+      value: 
+      objectReference: {fileID: 1016443544}
     - target: {fileID: 7322838183477808977, guid: 421c54926a601984b80f244f5d9b522f,
         type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 343907453}
+    - target: {fileID: 8714265572771124146, guid: 421c54926a601984b80f244f5d9b522f,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714265572771124146, guid: 421c54926a601984b80f244f5d9b522f,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 11.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714265572771124146, guid: 421c54926a601984b80f244f5d9b522f,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714265572771124146, guid: 421c54926a601984b80f244f5d9b522f,
+        type: 3}
+      propertyPath: TrailModule.textureMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8762934127831454993, guid: 421c54926a601984b80f244f5d9b522f,
         type: 3}
       propertyPath: m_Mesh
@@ -15738,7 +15809,7 @@ PrefabInstance:
     - target: {fileID: 8973404452267781779, guid: 421c54926a601984b80f244f5d9b522f,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9213939746934833706, guid: 421c54926a601984b80f244f5d9b522f,
         type: 3}

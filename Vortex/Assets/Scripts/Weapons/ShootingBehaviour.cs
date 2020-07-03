@@ -7,10 +7,13 @@ public class ShootingBehaviour : MonoBehaviour
     public UnityEvent onMark;
     public UnityEvent lostAim;
     public Transform shootingPoint;
+    public ParticleSystem impactEffect;
+    public ParticleSystem muzzleFlash;
     RaycastHit hit;
     bool isHit = false;
     bool isTargetHit = false;
     bool wasTargetHit = false;
+    private float nextTimeToFire = 0f;
 
     void Start()
     {
@@ -53,9 +56,10 @@ public class ShootingBehaviour : MonoBehaviour
     public void ShootBullet()
     {
         WeaponStats weaponStats = GetComponent<WeaponStats>();
-        if (weaponStats.ammo > 0)
+        if (weaponStats.ammo > 0 && Time.time >= nextTimeToFire)
         {
-            Debug.Log(weaponStats.ammo);
+            nextTimeToFire = Time.time + 1f / weaponStats.fireRate;
+            muzzleFlash.Play();
             weaponStats.ammo--;
             if (isHit)
             {
@@ -69,7 +73,10 @@ public class ShootingBehaviour : MonoBehaviour
                     if (damageToTake < 0) damageToTake = 0;
                     hit.collider.GetComponent<Health>().TakeDamage(damageToTake);
                 }
-                Debug.DrawRay(shootingPoint.position, hit.transform.position);
+                
+                ParticleSystem impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+
+                Destroy(impactGO, 1f);
             }
             if (weaponStats.ammo <= 0)
             {

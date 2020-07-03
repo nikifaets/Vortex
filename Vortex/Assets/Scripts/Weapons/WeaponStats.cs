@@ -11,6 +11,8 @@ public class WeaponStats : MonoBehaviour
 
     public float damageFallOff = 1f;
 
+    public float fireRate = 15f;
+
     public int ammo = 50;
 
     public int magazineCapacity = 50;

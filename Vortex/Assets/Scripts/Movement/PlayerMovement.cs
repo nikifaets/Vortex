@@ -63,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void ShootInput()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButton("Fire1"))
         {
             GetComponent<Animator>().SetTrigger("Shooting");
             Debug.Log("Shoot");

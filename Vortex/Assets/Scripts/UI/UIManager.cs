@@ -47,6 +47,7 @@ public class UIManager : MonoBehaviour
         aimUI.SetActive(true);
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void OnPlayerDied(){

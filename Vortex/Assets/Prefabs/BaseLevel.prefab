@@ -11586,6 +11586,7 @@ MonoBehaviour:
   runningSpeedIncrement: 5
   jumpForce: 400
   raycastDistance: 3.1
+  healingCooldown: 10
   orangePortal: {fileID: 4090226154011190477}
   bluePortal: {fileID: 8045575237657399938}
 --- !u!114 &5739217600382428236

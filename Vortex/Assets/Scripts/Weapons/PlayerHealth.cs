@@ -21,7 +21,7 @@ public class PlayerHealth : MonoBehaviour
             Debug.Log("took " + damage + " damage.");
         }
 
-        if (health < 25)
+        if (health < 35)
         {
                 woundedPPV.enabled = true;
         }
@@ -33,5 +33,15 @@ public class PlayerHealth : MonoBehaviour
             died.Invoke();
         }
     }
-
+    public void RestoreHealth(float healthToRestore)
+    {
+        if (health + healthToRestore >= 100)
+        {
+            health = 100;
+        }
+        else { 
+            health += healthToRestore; 
+        }
     }
+
+}

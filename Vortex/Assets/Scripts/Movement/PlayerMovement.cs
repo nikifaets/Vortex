@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public float runningSpeedIncrement = 3f;
     public float jumpForce = 20;
     public float raycastDistance = 0.2f;
+    public float healingCooldown = 10f;
 
     public GameObject orangePortal;
     public GameObject bluePortal;
@@ -27,6 +28,8 @@ public class PlayerMovement : MonoBehaviour
         CreatePortalInput();
         ShootInput();
         ReloadInput();
+        HealingInput();
+        if(healingCooldown > 0) healingCooldown -= Time.deltaTime;
     }
     private void FixedUpdate()
     {
@@ -77,6 +80,14 @@ public class PlayerMovement : MonoBehaviour
             Transform weapon = transform.Find("Weapon");
             weapon.GetComponent<ShootingBehaviour>().Reload();
             GetComponent<Animator>().SetTrigger("Reloading");
+        }
+    }
+    private void HealingInput()
+    {
+        if (Input.GetKeyDown(KeyCode.B) && healingCooldown <= 0)
+        {
+            Debug.Log("Healed for 30.");
+            GetComponent<PlayerHealth>().RestoreHealth(30);
         }
     }
     private void CreatePortalInput()
